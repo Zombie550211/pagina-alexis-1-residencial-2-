@@ -309,9 +309,9 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 /* Las rutas de --bg-img son relativas a ESTE archivo (css/), no al HTML */
 .hero-slide[data-slide="1"] {
-  --bg-a: #3a3f4b; --bg-b: #15171c;
+  --bg-a: #192b48; --bg-b: #121b2c;
   --bg-img: url('../images/problemas_de_conexion.webp');
-  --bg-pos: center 40%;  /* baja a la clienta para que no choque con el titular */
+  --bg-pos: center;  /* esta foto es apaisada y el telefono va centrado: sin desplazar */
 }
 .hero-slide[data-slide="2"] {
   --bg-a: #4a3a2f; --bg-b: #17130f;
@@ -1075,6 +1075,15 @@ section[id] { scroll-margin-top: var(--header-h); }
 
   .hero-content { margin-left: 0; }
   .hero-arrow { display: none; }
+
+  /* La foto de este slide es apaisada: en vertical el recorte deja fuera casi
+     toda la escena. Se cambia por una version 9:16 con la escena completa
+     abajo y el fondo de la propia foto desenfocado arriba, que es donde cae
+     el copy. Las rutas son relativas a css/, igual que arriba. */
+  .hero-slide[data-slide="1"] {
+    --bg-img: url('../images/problemas_de_conexion-movil.webp');
+    --bg-pos: center bottom;
+  }
   .hero-content h1 { font-size: 32px; }
   .hero-content p { font-size: 16px; margin-bottom: 26px; }
 
