@@ -349,7 +349,9 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 .hero-nav {
   position: absolute;
-  bottom: 44px;
+  /* Se sube respecto del borde para dejar pasar el boton flotante de llamada,
+     que tambien va centrado abajo. */
+  bottom: 104px;
   left: 0; right: 0;
   z-index: 4;
   display: flex;
@@ -866,6 +868,27 @@ section[id] { scroll-margin-top: var(--header-h); }
 .dev-notice strong { color: #a35b00; }
 
 /* ============================================
+   BOTON FLOTANTE DE LLAMADA
+   ============================================ */
+.call-fab {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Por encima del contenido pero por debajo del menu movil (205) y del
+     header (200), para no quedar flotando sobre el menu abierto. */
+  z-index: 150;
+  padding: 17px 38px;
+  font-size: 15px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.32);
+}
+.call-fab:hover { transform: translateX(-50%) translateY(-2px); }
+
+/* El boton tapa la franja inferior de las secciones fijas al pie: se les
+   agrega aire para que nada quede debajo. */
+.footer-bottom { padding-bottom: 96px; }
+
+/* ============================================
    ANIMACIONES
    ============================================
    [data-reveal]            elemento que aparece al entrar en pantalla
@@ -1087,8 +1110,14 @@ section[id] { scroll-margin-top: var(--header-h); }
   .hero-content h1 { font-size: 32px; }
   .hero-content p { font-size: 16px; margin-bottom: 26px; }
 
+  .call-fab {
+    bottom: 16px;
+    padding: 15px 32px;
+    font-size: 14px;
+  }
+
   /* Los puntos siguen midiendo 3px pero se tocan en una franja de 30px */
-  .hero-nav { gap: 6px; }
+  .hero-nav { gap: 6px; bottom: 88px; }
   .hero-dot {
     height: 30px;
     padding: 13px 0;
