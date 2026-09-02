@@ -34,10 +34,21 @@ aws s3 sync . "s3://$BUCKET" \
   --include "index.html" \
   --include "privacidad.html" \
   --include "terminos.html" \
+  --include "robots.txt" \
+  --include "sitemap.xml" \
   --include "css/*" \
   --include "js/*" \
   --include "images/*" \
   --no-progress
+
+# URLs limpias sin funcion de CloudFront: el mismo HTML tambien como objeto sin
+# extension, para que /privacidad y /terminos resuelvan.
+for p in privacidad terminos; do
+  aws s3 cp "$p.html" "s3://$BUCKET/$p" \
+    --profile "$PROFILE" \
+    --content-type "text/html; charset=utf-8" \
+    --cache-control no-cache --no-progress
+done
 
 # Los archivos se reemplazan sin cambiarles el nombre, asi que sin invalidar
 # CloudFront seguiria sirviendo la copia vieja hasta que expire.
