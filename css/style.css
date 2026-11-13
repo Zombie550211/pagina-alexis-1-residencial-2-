@@ -786,7 +786,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   gap: 40px;
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.footer-col h4 {
+.footer-col h3 {
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1130,3 +1130,4 @@ section[id] { scroll-margin-top: var(--header-h); }
   .plan-card { padding: 36px 24px 28px; }
   .contact-info-card { padding: 30px 24px; }
 }
+.contact-info-item a[href^="mailto:"] { text-decoration: underline; text-underline-offset: 2px; }
